@@ -1,0 +1,11 @@
+[Unit]
+Description=mediawiki database
+
+[Service]
+ExecStartPre=/usr/bin/docker kill mediawiki-db-%i
+ExecStartPre=/usr/bin/docker rm mediawiki-db-%i
+ExecStart=/usr/bin/docker run --rm --name mediawiki-db-%i capttofu/mysql_simple
+ExecStop=/usr/bin/docker stop mediawiki-db-%i
+
+[X-Fleet]
+Conflicts=mediawiki-db@*.service
