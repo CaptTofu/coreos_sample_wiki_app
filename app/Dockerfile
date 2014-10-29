@@ -1,7 +1,7 @@
 FROM ubuntu
 RUN apt-get update -y
 RUN apt-get install supervisor mysql-client apache2 php5 php-apc imagemagick php5-mysql libapache2-mod-php5 wget -y
-COPY apache2.conf /etc/supervisor/conf.d/apache2.conf
+#COPY apache2.conf /etc/supervisor/conf.d/apache2.conf
 RUN wget http://releases.wikimedia.org/mediawiki/1.23/mediawiki-1.23.5.tar.gz
 RUN tar xvzf mediawiki-1.23.5.tar.gz
 RUN rm /mediawiki-1.23.5.tar.gz
